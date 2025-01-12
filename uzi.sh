@@ -1,11 +1,14 @@
 #!/bin/sh
 set -e
-SNAPDATE=$(date +%Y%m%d%H%M%S)
+# Touch stuff here
 LIMIT_PRUNIES="10"
 SRCDATASET="mypool/linuxiso"
 DSTDATASET="backup/linuxiso"
 BACKUPTAG="backup"
 
+# Do not touch my stuff below
+########################################################################################
+SNAPDATE=$(date +%Y%m%d%H%M%S)
 SRCPREVSNAP=$(zfs list -H -t snapshot -o name,guid -S creation $SRCDATASET |head -n1)
 DSTPREVSNAP=$(zfs list -H -t snapshot -o name,guid -S creation $DSTDATASET |head -n1)
 
